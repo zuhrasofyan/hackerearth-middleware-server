@@ -8,14 +8,14 @@ module.exports = {
             if (!user) {
                 res.status(400).send({
                     success: false,
-                    message: 'invalidLogin'
+                    message: 'Password atau email yang anda masukkan salah. coba ulangi'
                 });
                 return;
             } else {
                 if (err) {
                     res.status(400).send({
                         success: false,
-                        message: 'unknownError',
+                        message: 'Server error',
                         error: err
                     });
                 } else {
@@ -25,7 +25,7 @@ module.exports = {
                     req.session.cookie.token = token;
                     res.send({
                         success: true,
-                        user: {email:user[0].email, username:user[0].username },
+                        user: user[0],
                         token: token
                     });
                 }
@@ -38,7 +38,6 @@ module.exports = {
                 //418 = I'm a teapot!
                 if (err) return res.status(401).send({success: false, message: 'invalid'});
                 if (decoded) {
-                    console.log(decoded[0]);
                     return res.send({success: true, user: decoded});
                 }
             });
