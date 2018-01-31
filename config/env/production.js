@@ -26,6 +26,7 @@ module.exports = {
    ***************************************************************************/
 
   // port: 80,
+  port: 1339,
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
@@ -34,5 +35,6 @@ module.exports = {
   // log: {
   //   level: "silent"
   // }
+  appUrl: 'https://bappeda.bandaacehkota.go.id/service/tapal'
 
 };
