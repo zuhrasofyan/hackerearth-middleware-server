@@ -8,9 +8,6 @@
 var auth = require('../services/auth');
 
 module.exports = {
-    register: function (req,res) {
-        auth.register(req,res);
-    },
     login: function (req, res) {
         auth.login(req, res);
     },
