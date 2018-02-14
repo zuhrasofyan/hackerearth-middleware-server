@@ -102,8 +102,8 @@ module.exports = {
       req.file('avatar').upload({
         // max size: ~2 MB
         maxBytes: 2000000,
-        // set custom upload dir path name
-        dirname: path.resolve(sails.config.appPath, 'assets/images/avatar')
+        // set custom upload dir path name. Put it outside main folder to avoid accidentally deleted asset folder when update/clone repo
+        dirname: path.resolve(sails.config.appPath, '../tapal-assets/images/avatar')
       }, function whenDone(err, uploadedFiles){
         // TODO: Make a random friendly string filename to prevent user uploaded file with unicode filename.
         var fileNameAfterUpload = uploadedFiles[0].fd;
