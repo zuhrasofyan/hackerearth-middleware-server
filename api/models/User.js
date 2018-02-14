@@ -29,6 +29,10 @@ module.exports = {
         type: 'BOOLEAN',
         defaultsTo: false
     },
+    avatar: {
+      collection: 'user_avatar',
+      via: 'userId'
+    },
     isDeleted: {
         type: 'BOOLEAN',
         defaultsTo: false
