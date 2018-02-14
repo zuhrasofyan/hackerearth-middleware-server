@@ -41,7 +41,10 @@ module.exports.routes = {
   'GET /auth/validate_token' : 'AuthController.validate_token',
   'GET /auth/logout': 'AuthController.logout',
   'POST /register' : 'UserController.register',
+
+  // User Management
   'GET /user/profil/:id' : 'UserController.getUser',
+  'PATCH /user/avatar/:id' : 'UserController.uploadAvatar',
 
 
   // Admin Only
