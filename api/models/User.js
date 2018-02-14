@@ -44,7 +44,6 @@ module.exports = {
     }
   },
   beforeCreate: function (user, cb) {
-    delete user.password_confirmation;
     bcrypt.genSalt(10, function (err, salt) {
         bcrypt.hash(user.password, salt, function () {
         }, function (err, hash) {

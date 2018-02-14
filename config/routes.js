@@ -36,11 +36,17 @@ module.exports.routes = {
   //   view: 'homepage'
   // }
 
-  //this is, combined with disabling blueprints will restrict access to the required action based on controller
+  // this is, combined with disabling blueprints will restrict access to the required action based on controller
   'POST /auth/login': 'AuthController.login',
   'GET /auth/validate_token' : 'AuthController.validate_token',
   'GET /auth/logout': 'AuthController.logout',
   'POST /register' : 'UserController.register',
+  'GET /user/profil/:id' : 'UserController.getUser',
+
+
+  // Admin Only
+  'GET /admin/get-all-user' : 'UserController.getAllUser',
+
   'GET /quote/open' : 'QuoteController.getQuote',
   'GET /quote/protected' : 'QuoteController.getProtectedQuote',
 
