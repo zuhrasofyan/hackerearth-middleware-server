@@ -17,8 +17,6 @@ module.exports = function(req, res, next) {
 
   var decoded = jwt.verify(req.headers.authorization.split(' ')[1], secret);
   if (decoded) {
-    console.log(decoded);
-
     if (decoded.isAdmin === true) {
       return next();
     } else {return res.forbidden('Anda Bukan Admin!')};
