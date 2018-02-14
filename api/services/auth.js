@@ -1,6 +1,6 @@
 var passport = require('passport');
 var jwt = require('jsonwebtoken');
-//var User = 
+//var User =
 
 module.exports = {
     login: function (req, res) {
@@ -19,8 +19,11 @@ module.exports = {
                         error: err
                     });
                 } else {
-                    //token expired in 1 day
-                    var token = jwt.sign(user[0], sails.config.secret, {expiresIn: 60 * 60 * 24});
+                    // Delete user password from returned token
+                    var userData = user[0];
+                    delete userData.password;
+                    // token expired in 7 days
+                    var token = jwt.sign(userData, sails.config.secret, {expiresIn: 60 * 60 * 24 * 7});
                     // Set persistent cookie
                     req.session.cookie.token = token;
                     res.send({
