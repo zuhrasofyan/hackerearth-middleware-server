@@ -45,6 +45,7 @@ module.exports.routes = {
   // User Management
   'GET /user/profil/:id' : 'UserController.getUser',
   'PATCH /user/avatar/:id' : 'UserController.uploadAvatar',
+  'GET /user/avatar/:id' : 'UserController.getAvatar',
 
 
   // Admin Only

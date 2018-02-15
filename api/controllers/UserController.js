@@ -9,6 +9,7 @@ var jwt = require('jsonwebtoken');
 var fs = require('fs');
 var secret = sails.config.secret;
 var path = require('path');
+var SkipperDisk = require('skipper-disk');
 
 module.exports = {
   register: function (req, res) {
@@ -173,6 +174,37 @@ module.exports = {
       });
 
     }
+  },
+
+  getAvatar: function (req, res) {
+    //var userId = req.param('id');
+    // req.validate({
+    //   id: 'string'
+    // });
+
+    User_avatar.findOne({userId: req.param('id')}).exec(function(err, user){
+      if (err) {return res.negotiate(err);}
+      if (!user) {return res.notFound('avatar tidak dapat ditemukan');}
+
+      // User has no avatar image uploaded.
+      // (should have never have hit this endpoint and used the default image)
+      if (!user.avatarFd) {
+        return res.notFound();
+      }
+
+      // fileAdapter using SkipperDisk
+      var fileAdapter = SkipperDisk(/* optional opts */);
+
+      // set the filename to the same file as the user uploaded
+      //res.set("Content-disposition", "image; filename='" + 'sasdd.jpg' + "'");
+
+      // Stream the file down
+      fileAdapter.read(user.avatarFd)
+        .on('error', function (err){
+          return res.serverError(err);
+        })
+        .pipe(res);
+    });
   },
 
 };

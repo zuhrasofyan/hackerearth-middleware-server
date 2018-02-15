@@ -36,6 +36,7 @@ module.exports.policies = {
     getAllUser: ["hasToken", "isAdmin"],
     getUser: ["hasToken", "isCorrectUserId"],
     uploadAvatar: ["hasToken", "isCorrectUserId"],
+    getAvatar: true,
   },
   AuthController: {
     '*': true
