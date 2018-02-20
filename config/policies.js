@@ -44,6 +44,9 @@ module.exports.policies = {
   QuoteController: {
     getQuote: true,
     getProtectedQuote: "hasToken"
+  },
+  TapalController: {
+    uploadTapal: true, //change this to hasToken and isAdmin after finishing implementation in frontend
   }
 
   /***************************************************************************

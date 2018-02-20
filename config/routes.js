@@ -47,6 +47,8 @@ module.exports.routes = {
   'PATCH /user/avatar/:id' : 'UserController.uploadAvatar',
   'GET /user/avatar/:id' : 'UserController.getAvatar',
 
+  // Tapal management
+  'POST /docs/tapal' : 'TapalController.uploadTapal',
 
   // Admin Only
   'GET /admin/get-all-user' : 'UserController.getAllUser',
