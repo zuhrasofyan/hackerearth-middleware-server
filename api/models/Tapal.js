@@ -37,6 +37,21 @@ module.exports = {
     informasi: {
       type: 'STRING'
     },
+    thumbnailUrl: {
+      type: 'STRING'
+    },
+    thumbnailFd: {
+      type: 'STRING'
+    },
+    toJSON: function () {
+      var obj = this.toObject();
+      //this will delete doc tapal location address keyvalue from returned json
+      delete obj.tapalFd;
+      delete ob.thumbnailFd;
+      // delete obj.avatarFd;
+      // delete obj.avatarUrl;
+      return obj;
+    },
   },
 
 };
