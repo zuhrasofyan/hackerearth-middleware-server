@@ -73,6 +73,49 @@ module.exports = {
     }
   },
 
+  getTapalListPublic: function (req, res) {
+    Tapal.find({isProtected: false}).exec(function(err, result){
+      if (err) {
+        return res.serverError(err);
+      } else {
+        return res.json(result);
+      }
+    });
+  },
+
+  getTapalListAll: function (req, res) {
+    Tapal.find().exec(function(err, result){
+      if (err) {
+        return res.serverError(err);
+      } else {
+        return res.json(result);
+      }
+    });
+  },
+
+  // TODO: check if user can download protected doc. if yes, make another specific route with special policy to prevent that
+  // TODO: change the route url based on tapalUrl. currently its using /:id and it could exposed by guessing url.
+  getTapalDoc: function(req, res){
+    var id = req.param('id');
+    // var link = require('util').format('%s/docs/tapal/%s', sails.config.appUrl, identifier);
+    Tapal.findOne({id:id}).exec(function(err, result){
+      if (err) {
+        return res.serverError(err);
+      } else {
+        if (!result) {return res.notFound('dokumen tidak dapat ditemukan');}
+        var SkipperDisk = require('skipper-disk');
+        var fileAdapter = SkipperDisk(/* optional opts */);
+
+        // Stream the file down
+        fileAdapter.read(result.tapalFd)
+          .on('error', function (err){
+            return res.serverError(err);
+          })
+          .pipe(res);
+      }
+    })
+  }
+
 
 };
 

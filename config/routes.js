@@ -49,6 +49,9 @@ module.exports.routes = {
 
   // Tapal management
   'POST /docs/tapal' : 'TapalController.uploadTapal',
+  'GET /docs/tapal/public' : 'TapalController.getTapalListPublic',
+  'GET /docs/tapal/all' : 'TapalController.getTapalListAll',
+  'GET /docs/tapal/:id' : 'TapalController.getTapalDoc',
 
   // Admin Only
   'GET /admin/get-all-user' : 'UserController.getAllUser',
