@@ -14,7 +14,7 @@ module.exports = {
     userId: {
       model: 'user'
     },
-    tapalUrl: {
+    tapalIdentifier: {
       type: 'STRING'
     },
     tapalFd: {

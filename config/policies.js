@@ -49,7 +49,7 @@ module.exports.policies = {
     uploadTapal: ["hasToken", "isAdmin"],
     getTapalListPublic: true,
     getTapalListAll: ["hasToken", "isAdmin"],
-    getTapalDoc: true,
+    getTapalDoc: ["hasToken"],
   }
 
   /***************************************************************************

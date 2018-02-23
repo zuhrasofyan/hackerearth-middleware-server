@@ -57,7 +57,7 @@ module.exports = {
             kategori: kategori,
             sumber: sumber,
             isProtected: isProtected,
-            tapalUrl: require('util').format('%s/docs/tapal/%s', sails.config.appUrl, randomUrl),
+            tapalIdentifier: randomUrl,
             tapalFd: uploadedFiles[0].fd,
             informasi: informasi
           })
@@ -95,10 +95,10 @@ module.exports = {
 
   // TODO: check if user can download protected doc. if yes, make another specific route with special policy to prevent that
   // TODO: change the route url based on tapalUrl. currently its using /:id and it could exposed by guessing url.
+  // get Tapal Doc for user restricted for non admin
   getTapalDoc: function(req, res){
-    var id = req.param('id');
-    // var link = require('util').format('%s/docs/tapal/%s', sails.config.appUrl, identifier);
-    Tapal.findOne({id:id}).exec(function(err, result){
+    var identifier = req.param('identifier');
+    Tapal.findOne({tapalIdentifier:identifier}).exec(function(err, result){
       if (err) {
         return res.serverError(err);
       } else {
@@ -111,7 +111,7 @@ module.exports = {
           .on('error', function (err){
             return res.serverError(err);
           })
-          .pipe(res);
+          .pipe(res)
       }
     })
   }
