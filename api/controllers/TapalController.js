@@ -9,6 +9,8 @@ var fs = require('fs');
 var path = require('path');
 var SkipperDisk = require('skipper-disk');
 var crypto = require('crypto');
+var jwt = require('jsonwebtoken');
+var secret = sails.config.secret;
 
 module.exports = {
 
@@ -74,7 +76,7 @@ module.exports = {
   },
 
   getTapalListPublic: function (req, res) {
-    Tapal.find({isProtected: false}).exec(function(err, result){
+    Tapal.find({isProtected:false}).exec(function(err, result){
       if (err) {
         return res.serverError(err);
       } else {
@@ -93,8 +95,7 @@ module.exports = {
     });
   },
 
-  // TODO: check if user can download protected doc. if yes, make another specific route with special policy to prevent that
-  // TODO: change the route url based on tapalUrl. currently its using /:id and it could exposed by guessing url.
+  // TODO: make analytics functionality for each downloaded document
   // get Tapal Doc for user restricted for non admin
   getTapalDoc: function(req, res){
     var identifier = req.param('identifier');
@@ -103,15 +104,38 @@ module.exports = {
         return res.serverError(err);
       } else {
         if (!result) {return res.notFound('dokumen tidak dapat ditemukan');}
-        var SkipperDisk = require('skipper-disk');
-        var fileAdapter = SkipperDisk(/* optional opts */);
+        else {
+          // check. Only admin able to download protected file
+          if (result.isProtected === true) {
+            var decoded = jwt.verify(req.headers.authorization.split(' ')[1], secret);
+            if (decoded) {
+              // Check if result from decoded token user id is equal to requested url param with userId
+              if (decoded.isAdmin === true) {
+                var fileAdapter = SkipperDisk(/* optional opts */);
 
-        // Stream the file down
-        fileAdapter.read(result.tapalFd)
-          .on('error', function (err){
-            return res.serverError(err);
-          })
-          .pipe(res)
+                // Stream the file down
+                fileAdapter.read(result.tapalFd)
+                  .on('error', function (err){
+                    return res.serverError(err);
+                  })
+                  .pipe(res)
+              } else {
+                return res.forbidden('Operasi yang anda lakukan dilarang!')
+              }
+            }
+          // if ordinary user, able to download file
+          } else if (result.isProtected === false) {
+            var fileAdapter = SkipperDisk(/* optional opts */);
+
+            // Stream the file down
+            fileAdapter.read(result.tapalFd)
+              .on('error', function (err){
+                return res.serverError(err);
+              })
+              .pipe(res)
+          }
+
+        }
       }
     })
   }
