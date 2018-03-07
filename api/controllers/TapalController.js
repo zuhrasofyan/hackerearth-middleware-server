@@ -61,7 +61,8 @@ module.exports = {
             isProtected: isProtected,
             tapalIdentifier: randomUrl,
             tapalFd: uploadedFiles[0].fd,
-            informasi: informasi
+            informasi: informasi,
+            ukuran: (uploadedFiles[0].size)/1000
           })
             .exec(function (err, result) {
               if (err) {

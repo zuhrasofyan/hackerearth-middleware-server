@@ -37,6 +37,9 @@ module.exports = {
     informasi: {
       type: 'STRING'
     },
+    ukuran: {
+      type: 'FLOAT'
+    },
     thumbnailUrl: {
       type: 'STRING'
     },
