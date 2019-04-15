@@ -1,1 +1,1 @@
-module.exports.secret = "dsak45845*UJI)(Opjd;')8/\'[#";
+module.exports.secret = "//><^5mfdSADSKLS&*(OIPOM@~]}";
