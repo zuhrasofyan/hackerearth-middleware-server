@@ -35,6 +35,7 @@ module.exports = {
   // log: {
   //   level: "silent"
   // }
-  appUrl: 'https://bappeda.bandaacehkota.go.id/service/tapal'
+  appUrl: 'https://bappeda.bandaacehkota.go.id/service/tapal',
+  azureAPI: 'PLACE YOUR PREDICTION API HERE'
 
 };

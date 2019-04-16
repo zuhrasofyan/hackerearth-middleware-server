@@ -20,6 +20,7 @@ module.exports = {
   // models: {
   //   connection: 'someMongodbServer'
   // }
-  appUrl: 'http://localhost:1337'
+  appUrl: 'http://localhost:1337',
+  azureAPI: 'PLACE YOUR PREDICTION API HERE'
 
 };
