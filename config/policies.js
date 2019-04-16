@@ -41,9 +41,8 @@ module.exports.policies = {
   AuthController: {
     '*': true
   },
-  QuoteController: {
-    getQuote: true,
-    getProtectedQuote: "hasToken"
+  ImageSaverController: {
+    uploadImage: true
   },
   TapalController: {
     uploadTapal: ["hasToken", "isAdmin"],

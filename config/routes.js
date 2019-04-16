@@ -47,6 +47,9 @@ module.exports.routes = {
   'PATCH /user/avatar/:id' : 'UserController.uploadAvatar',
   'GET /user/avatar/:id' : 'UserController.getAvatar',
 
+  // Image Management
+  'POST /image-upload': 'ImageSaverController.uploadImage', 
+
   // Tapal management
   'POST /docs/tapal' : 'TapalController.uploadTapal',
   'GET /docs/tapal/public' : 'TapalController.getTapalListPublic',
@@ -55,9 +58,6 @@ module.exports.routes = {
 
   // Admin Only
   'GET /admin/get-all-user' : 'UserController.getAllUser',
-
-  'GET /quote/open' : 'QuoteController.getQuote',
-  'GET /quote/protected' : 'QuoteController.getProtectedQuote',
 
   /***************************************************************************
   *                                                                          *
