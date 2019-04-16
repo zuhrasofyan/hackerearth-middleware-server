@@ -58,7 +58,24 @@ module.exports = {
             if (err) {
               return res.serverError(err);
             } else {
-              return res.ok('image saved')
+              // After being saved, send image URL to customvision API to get prediction
+              HTTP.post({
+                url: 'https://southeastasia.api.cognitive.microsoft.com/customvision/v3.0/Prediction/4e674e11-638c-484a-bad0-33f01830111c/classify/iterations/Iteration1/url',
+                data: {
+                  url: result.imageUrl
+                },
+                headers: {
+                  'Prediction-Key': '91213a714c8849928a84cbf03364b931',
+                  'Content-Type': 'application/json'
+                }
+              }).exec(function(errorPrediction, predictionResult){
+                if (errorPrediction) {
+                  return res.serverError(errorPrediction);
+                } else {
+                  // TODO: make a function to parse returned json, save the prediction to category, and notify appropiate client
+                  return res.ok(predictionResult);
+                }
+              })
 
             }
           })
