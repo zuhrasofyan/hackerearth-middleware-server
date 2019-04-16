@@ -48,7 +48,8 @@ module.exports.routes = {
   'GET /user/avatar/:id' : 'UserController.getAvatar',
 
   // Image Management
-  'POST /image-upload': 'ImageSaverController.uploadImage', 
+  'POST /image-upload': 'ImageSaverController.uploadImage',
+  'GET /image/:name': 'ImageSaverController.getImage',
 
   // Tapal management
   'POST /docs/tapal' : 'TapalController.uploadTapal',

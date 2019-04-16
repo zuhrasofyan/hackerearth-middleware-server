@@ -8,8 +8,8 @@
 var fs = require('fs');
 var secret = sails.config.secret;
 var path = require('path');
-// var crypto = require('crypto');
 var SkipperDisk = require('skipper-disk');
+var HTTP = require('machinepack-http');
 
 module.exports = {
   
@@ -58,8 +58,7 @@ module.exports = {
             if (err) {
               return res.serverError(err);
             } else {
-              // TODO: not res.ok, but instead send image to cv API and retrieve information from it, save to category in db
-              return res.ok('your image has been saved');
+              return res.ok('image saved')
 
             }
           })
@@ -69,6 +68,24 @@ module.exports = {
       });
 
     }
+  },
+
+  getImage: function (req, res) {
+
+    ImageSaver.findOne({name: req.param('name')}).exec(function(err, image){
+      if (err) {return res.negotiate(err);}
+      if (!image) {return res.notFound('image cannot be found');}
+
+      // fileAdapter using SkipperDisk
+      var fileAdapter = SkipperDisk(/* optional opts */);
+
+      // Stream the file down
+      fileAdapter.read(image.imageFd)
+        .on('error', function (err){
+          return res.serverError(err);
+        })
+        .pipe(res);
+    });
   },
 
 };
