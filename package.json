@@ -11,6 +11,7 @@
     "include-all": "^1.0.0",
     "jsonwebtoken": "^7.2.1",
     "machinepack-emailaddresses": "^0.4.0",
+    "machinepack-http": "^7.0.2",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0",
