@@ -35,7 +35,7 @@ module.exports = {
   // log: {
   //   level: "silent"
   // }
-  appUrl: 'test.iipch.org',
+  appUrl: 'test.puskadokesa.com',
   azureAPI: 'PLACE YOUR PREDICTION API HERE'
 
 };
