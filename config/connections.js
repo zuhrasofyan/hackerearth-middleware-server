@@ -40,13 +40,13 @@ module.exports.connections = {
   * Run: npm install sails-mysql                                             *
   *                                                                          *
   ***************************************************************************/
-  mysqlServer: {
-    adapter: 'sails-mysql',
-    host: 'localhost',
-    user: 'sails_middleware', //optional
-    password: 'sails_middleware', //optional
-    database: 'sails_middleware' //optional
-  },
+  // mysqlServer: {
+  //   adapter: 'sails-mysql',
+  //   host: 'localhost',
+  //   user: 'sails_middleware', //optional
+  //   password: 'sails_middleware', //optional
+  //   database: 'sails_middleware' //optional
+  // },
 
   /***************************************************************************
   *                                                                          *
@@ -56,14 +56,14 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
-  // someMongodbServer: {
-  //   adapter: 'sails-mongo',
-  //   host: 'localhost',
-  //   port: 27017,
-  //   user: 'username', //optional
-  //   password: 'password', //optional
-  //   database: 'your_mongo_db_name_here' //optional
-  // },
+  mlabServer: {
+    adapter: 'sails-mongo',
+    host: 'ds052408.mlab.com',
+    port: 52408,
+    user: 'zuhrasofyan', //optional
+    password: 'hackerearth2019', //optional
+    database: 'api911' //optional
+  },
 
   /***************************************************************************
   *                                                                          *
