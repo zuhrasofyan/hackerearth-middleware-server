@@ -35,7 +35,7 @@ module.exports = {
   // log: {
   //   level: "silent"
   // }
-  appUrl: 'test.puskadokesa.com',
+  appUrl: 'https://bappeda.bandaacehkota.go.id/service/hackerearth',
   azureAPI: 'PLACE YOUR PREDICTION API HERE'
 
 };
