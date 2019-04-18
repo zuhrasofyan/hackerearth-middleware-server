@@ -58,17 +58,19 @@ module.exports = {
             if (err) {
               return res.serverError(err);
             } else {
+              console.log(result);
               // After being saved, send image URL to customvision API to get prediction
               HTTP.post({
                 url: 'https://southeastasia.api.cognitive.microsoft.com/customvision/v3.0/Prediction/4e674e11-638c-484a-bad0-33f01830111c/classify/iterations/Iteration1/url',
                 data: {
-                  url: 'https://i.cbc.ca/1.5047014.1551981382!/cpImage/httpImage/image.jpg_gen/derivatives/16x9_780/manitoba-flood.jpg'
+                  url: result.imageUrl
                 },
                 headers: {
                   'Prediction-Key': '91213a714c8849928a84cbf03364b931',
                   'Content-Type': 'application/json'
                 }
               }).exec(function(errorPrediction, predictionResult){
+                
                 if (errorPrediction) {
                   return res.serverError(errorPrediction);
                 } else {
