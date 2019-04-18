@@ -50,7 +50,7 @@ module.exports.routes = {
 
   // Image Management
   'POST /image-upload': 'ImageSaverController.uploadImage',
-  'GET /image/:name': 'ImageSaverController.getImage',
+  'GET /customvision/image/:name': 'ImageSaverController.getImage',
 
   // Tapal management
   'POST /docs/tapal' : 'TapalController.uploadTapal',
