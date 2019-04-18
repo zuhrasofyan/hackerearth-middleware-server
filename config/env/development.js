@@ -12,6 +12,9 @@
 
 module.exports = {
 
+  // set default port
+  port: 1339,
+
   /***************************************************************************
    * Set the default database connection for models in the development       *
    * environment (see config/connections.js and config/models.js )           *
@@ -20,7 +23,7 @@ module.exports = {
   // models: {
   //   connection: 'someMongodbServer'
   // }
-  appUrl: 'http://localhost:1337',
+  appUrl: 'http://localhost:1339',
   azureAPI: 'PLACE YOUR PREDICTION API HERE'
 
 };
