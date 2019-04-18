@@ -43,6 +43,7 @@ module.exports.routes = {
   'POST /register' : 'UserController.register',
 
   // User Management
+  'GET /hello' : 'UserController.hello',
   'GET /user/profil/:id' : 'UserController.getUser',
   'PATCH /user/avatar/:id' : 'UserController.uploadAvatar',
   'GET /user/avatar/:id' : 'UserController.getAvatar',

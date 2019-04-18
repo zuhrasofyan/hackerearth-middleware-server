@@ -12,6 +12,10 @@ var path = require('path');
 var SkipperDisk = require('skipper-disk');
 
 module.exports = {
+  hello: function(req, res) {
+    return res.json({message: 'Hey it works!'})
+  },
+
   register: function (req, res) {
     var email = req.param('email');
     var password = req.param('password');

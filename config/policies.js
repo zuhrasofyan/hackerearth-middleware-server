@@ -32,6 +32,7 @@ module.exports.policies = {
   //zuhra
   '*': "hasToken",
   UserController: {
+    hello: true,
     register: true,
     getAllUser: ["hasToken", "isAdmin"],
     getUser: ["hasToken", "isCorrectUserId"],
