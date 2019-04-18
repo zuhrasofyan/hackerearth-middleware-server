@@ -62,7 +62,7 @@ module.exports = {
               HTTP.post({
                 url: 'https://southeastasia.api.cognitive.microsoft.com/customvision/v3.0/Prediction/4e674e11-638c-484a-bad0-33f01830111c/classify/iterations/Iteration1/url',
                 data: {
-                  url: result.imageUrl
+                  url: 'https://i.cbc.ca/1.5047014.1551981382!/cpImage/httpImage/image.jpg_gen/derivatives/16x9_780/manitoba-flood.jpg'
                 },
                 headers: {
                   'Prediction-Key': '91213a714c8849928a84cbf03364b931',
