@@ -58,7 +58,6 @@ module.exports = {
             if (err) {
               return res.serverError(err);
             } else {
-              console.log(result);
               // After being saved, send image URL to customvision API to get prediction
               HTTP.post({
                 url: 'https://southeastasia.api.cognitive.microsoft.com/customvision/v3.0/Prediction/4e674e11-638c-484a-bad0-33f01830111c/classify/iterations/Iteration1/url',
