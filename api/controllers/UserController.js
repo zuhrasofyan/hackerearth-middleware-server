@@ -100,7 +100,7 @@ module.exports = {
 
     // if extension of uploaded image is not jpg or png, response with error
     if ((extension != "jpg") && (extension != "jpeg") && (extension != "png")) {
-      return res.badRequest('Format gambar yang dibolehkan adalah jpeg, jpg atau png');
+      return res.badRequest('must be image format! (jpg, jpeg or png)');
     } else {
 
       // Avatar uploaded
