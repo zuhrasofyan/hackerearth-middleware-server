@@ -11,6 +11,11 @@ var path = require('path');
 var SkipperDisk = require('skipper-disk');
 var HTTP = require('machinepack-http');
 
+function extractData(dataPrediction, dataImage) {
+  // if (data)
+  return dataPredictions.predictions[0].probability;
+}
+
 module.exports = {
   
   // save image and pass data to azure CV
@@ -62,7 +67,8 @@ module.exports = {
               HTTP.post({
                 url: 'https://southeastasia.api.cognitive.microsoft.com/customvision/v3.0/Prediction/4e674e11-638c-484a-bad0-33f01830111c/classify/iterations/Iteration1/url',
                 data: {
-                  url: result.imageUrl
+                  // url: result.imageUrl
+                  url: 'https://i.cbc.ca/1.4650233.1525545382!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/n-b-flood-may-5-2018.jpg'
                 },
                 headers: {
                   'Prediction-Key': '91213a714c8849928a84cbf03364b931',
@@ -74,7 +80,22 @@ module.exports = {
                   return res.serverError(errorPrediction);
                 } else {
                   // TODO: make a function to parse returned json, save the prediction to category, and notify appropiate client
-                  return res.ok(predictionResult);
+                  if (predictionResult.predictions[0].probability) {
+                    if (predictionResult.predictions[0].probability > 0.6) {
+                      ImageSaver.update(
+                        {id: result.id}, 
+                        {category: predictionResult.predictions[0].tagName}
+                      ).exec(function(errorUpdate, updateResult){
+                        if (errorUpdate) {
+                          return res.serverError(errorUpdate);
+                        } else {
+                          return res.ok(updateResult);
+                        }
+                      })
+                    }
+                  }
+                  
+                  // return res.ok(predictionResult);
                 }
               })
 
