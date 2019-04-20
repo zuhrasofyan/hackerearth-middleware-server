@@ -106,5 +106,15 @@ module.exports = {
     });
   },
 
+  getAllImage: function (req, res) {
+    ImageSaver.find().exec(function(err, result) {
+      if (err) {
+        return res.negotiate(err);
+      } else {
+        return res.json(result);
+      }
+    })
+  }
+
 };
 

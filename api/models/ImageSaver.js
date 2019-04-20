@@ -7,6 +7,8 @@
 
 module.exports = {
 
+  autoCreatedAt: true,
+  autoUpdatedAt: true,
   attributes: {
 
     name: {
@@ -26,7 +28,13 @@ module.exports = {
     },
     imageUrl: {
       type: 'STRING'
-    }
+    },
+    toJSON: function () {
+      var obj = this.toObject();
+      //this will delete doc imagefd location address keyvalue from returned json
+      delete obj.imageFd;
+      return obj;
+    },
 
   },
 

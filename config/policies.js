@@ -45,6 +45,7 @@ module.exports.policies = {
   ImageSaverController: {
     uploadImage: true,
     getImage: true,
+    getAllImage: true,
   },
   TapalController: {
     uploadTapal: ["hasToken", "isAdmin"],

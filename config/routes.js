@@ -51,6 +51,7 @@ module.exports.routes = {
   // Image Management
   'POST /image-upload': 'ImageSaverController.uploadImage',
   'GET /customvision/image/:name': 'ImageSaverController.getImage',
+  'GET /image-all' : 'ImageSaverController.getAllImage',
 
   // Tapal management
   'POST /docs/tapal' : 'TapalController.uploadTapal',
@@ -60,6 +61,7 @@ module.exports.routes = {
 
   // Admin Only
   'GET /admin/get-all-user' : 'UserController.getAllUser',
+
 
   /***************************************************************************
   *                                                                          *
@@ -72,3 +74,4 @@ module.exports.routes = {
   ***************************************************************************/
 
 };
+
