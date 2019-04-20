@@ -32,7 +32,7 @@ module.exports = {
     status: {
       type: 'STRING',
       defaultsTo: 'received'
-    }
+    },
     toJSON: function () {
       var obj = this.toObject();
       //this will delete doc imagefd location address keyvalue from returned json
