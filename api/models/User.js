@@ -25,6 +25,10 @@ module.exports = {
         type: 'STRING',
         required: true
     },
+    role: {
+      type: 'STRING',
+      required: true
+    },
     isAdmin: {
         type: 'BOOLEAN',
         defaultsTo: false
