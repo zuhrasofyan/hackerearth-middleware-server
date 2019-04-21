@@ -67,8 +67,8 @@ module.exports = {
               HTTP.post({
                 url: 'https://southeastasia.api.cognitive.microsoft.com/customvision/v3.0/Prediction/4e674e11-638c-484a-bad0-33f01830111c/classify/iterations/Iteration1/url',
                 data: {
-                  // url: result.imageUrl
-                  url: 'https://i.cbc.ca/1.4650233.1525545382!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/n-b-flood-may-5-2018.jpg'
+                  url: result.imageUrl
+                  // url: 'http://www.dailynews.lk/sites/default/files/news/2016/04/29/bikeaccident.jpg'
                 },
                 headers: {
                   'Prediction-Key': '91213a714c8849928a84cbf03364b931',
