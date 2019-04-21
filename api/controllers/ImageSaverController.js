@@ -35,7 +35,7 @@ module.exports = {
       // Avatar uploaded
       req.file('image').upload({
         // no maxBytes
-        // maxBytes: 10000000,
+        maxBytes: 10000000,
         // set custom upload dir path name. Put it outside main folder to avoid accidentally deleted asset folder when update/clone repo
         dirname: path.resolve(sails.config.appPath, '../customvision/images')
       }, function whenDone(err, uploadedFiles){
