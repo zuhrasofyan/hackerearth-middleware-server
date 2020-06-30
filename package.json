@@ -7,7 +7,7 @@
   "dependencies": {
     "bcrypt": "^1.0.1",
     "bcrypt-nodejs": "0.0.3",
-    "express-jwt": "^5.1.0",
+    "express-jwt": "^6.0.0",
     "include-all": "^1.0.0",
     "jsonwebtoken": "^7.2.1",
     "machinepack-emailaddresses": "^0.4.0",
