@@ -5,7 +5,7 @@
   "description": "REST API boilerplate with sailsjs and authentification-ready application",
   "keywords": [],
   "dependencies": {
-    "bcrypt": "^1.0.1",
+    "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "express-jwt": "^5.1.0",
     "include-all": "^1.0.0",
