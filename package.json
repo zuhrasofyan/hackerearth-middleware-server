@@ -16,7 +16,7 @@
     "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0",
     "rc": "1.0.1",
-    "sails": "~0.12.10",
+    "sails": "~1.5.3",
     "sails-disk": "~0.10.9",
     "sails-mongo": "^0.12.3",
     "sails-mysql": "^0.11.5"
