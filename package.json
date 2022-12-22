@@ -9,7 +9,7 @@
     "bcrypt-nodejs": "0.0.3",
     "express-jwt": "^5.1.0",
     "include-all": "^1.0.0",
-    "jsonwebtoken": "^7.2.1",
+    "jsonwebtoken": "^9.0.0",
     "machinepack-emailaddresses": "^0.4.0",
     "machinepack-http": "^7.0.2",
     "passport": "^0.3.2",
